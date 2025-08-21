@@ -1,0 +1,48 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "projects": "Projets",
+    "about": "À propos",
+    "contact": "Contact",
+    "admin": "Admin"
+  },
+  "home": {
+    "title": "Développeur Full-Stack",
+    "subtitle": "Créateur d'expériences web modernes",
+    "description": "Passionné par le développement web, je crée des applications modernes avec les dernières technologies.",
+    "downloadCV": "Télécharger CV",
+    "viewProjects": "Voir mes projets",
+    "featuredProjects": "Projets mis en avant"
+  },
+  "projects": {
+    "title": "Mes Projets",
+    "description": "Découvrez mes réalisations et projets",
+    "viewDemo": "Voir la démo",
+    "viewCode": "Voir le code",
+    "technologies": "Technologies utilisées"
+  },
+  "admin": {
+    "title": "Administration",
+    "login": "Connexion",
+    "email": "Email",
+    "password": "Mot de passe",
+    "loginButton": "Se connecter",
+    "dashboard": "Tableau de bord",
+    "addProject": "Ajouter un projet",
+    "editProject": "Modifier le projet",
+    "deleteProject": "Supprimer",
+    "projectTitle": "Titre du projet",
+    "projectDescription": "Description",
+    "projectStack": "Technologies (séparées par des virgules)",
+    "githubUrl": "URL GitHub",
+    "demoUrl": "URL de démonstration",
+    "featured": "Projet mis en avant",
+    "save": "Sauvegarder",
+    "cancel": "Annuler"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue",
+    "success": "Opération réussie"
+  }
+}
