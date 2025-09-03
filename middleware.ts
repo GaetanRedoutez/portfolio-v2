@@ -20,7 +20,6 @@ export default async function middleware(request: NextRequest) {
     });
 
     if (!token) {
-      // Pas de session → redirige vers login
       return NextResponse.redirect(new URL("/admin/login", request.url));
     }
   }
