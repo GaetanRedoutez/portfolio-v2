@@ -5,6 +5,8 @@
     "title": "Développeur Web",
     "subtitle": "Je conçois des expériences web modernes et performantes",
     "cta1": "Découvrir mon portfolio",
-    "cta2": "Me contacter"
+    "cta1-label": "Portfolio de Gaëtan Redoutez",
+    "cta2": "Me contacter",
+    "cta2-label": "Contacter Gaëtan Redoutez"
   }
 }

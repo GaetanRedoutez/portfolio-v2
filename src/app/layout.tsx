@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import clsx from "clsx";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -18,7 +19,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" className={inter.variable} suppressHydrationWarning={true}>
+    <html
+      lang="fr"
+      className={clsx(inter.variable, "scroll-smooth")}
+      suppressHydrationWarning={true}
+    >
       <body className="flex min-h-screen flex-col bg-background text-foreground">
         {children}
       </body>
