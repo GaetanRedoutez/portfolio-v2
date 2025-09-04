@@ -1,16 +1,17 @@
-import { notFound } from "next/navigation";
 import { getRequestConfig } from "next-intl/server";
+import { notFound } from "next/navigation";
 
-// Can be imported from a shared config
 export const locales = ["fr", "en"] as const;
+export type Locale = (typeof locales)[number];
 export const defaultLocale = "fr" as const;
 
-export default getRequestConfig(async ({ locale = defaultLocale }) => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  if (!locales.includes(locale as any)) notFound();
+export default getRequestConfig(async ({ requestLocale }) => {
+  const resolvedLocale = (await requestLocale) ?? defaultLocale;
+
+  if (!locales.includes(resolvedLocale as Locale)) notFound();
 
   return {
-    locale,
-    messages: (await import(`./translations/${locale}.json`)).default,
+    locale: resolvedLocale,
+    messages: (await import(`./translations/${resolvedLocale}.json`)).default,
   };
 });

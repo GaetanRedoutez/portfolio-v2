@@ -10,28 +10,69 @@ module.exports = {
     colors: {
       transparent: "transparent",
       common: {
-        1: "#faf9f7",
-        2: "#ffffff",
-        3: "#f5f3f0",
-        4: "#f9f7f4",
+        1: "#ffffff", // blanc
+        2: "#000000", // noir
       },
       neutral: {
-        1: "#4a4a4a",
-        2: "#717182",
-        3: "#cbced4",
+        1: "#f5f6f5",
+        2: "#e3e5e3",
+        3: "#c8cbc9",
+        4: "#a3a9a6",
+        5: "#7b817d",
+        6: "#5a5f5c",
+        7: "#414644",
+        8: "#2c3531", // couleur principale
+        9: "#1b211f",
+        10: "#0a0c0b",
       },
       accent: {
-        1: "#7c9885",
-        2: "#a8c5d1",
-        3: "#e8d5c4",
-        4: "#c4a584",
-        5: "#9bb3a0",
+        1: "#e6f2f2",
+        2: "#cce6e6",
+        3: "#99cccc",
+        4: "#66b3b3",
+        5: "#339999",
+        6: "#227f7f",
+        7: "#196c6c",
+        8: "#116466", // couleur principale
+        9: "#0a3d3e",
+        10: "#041616",
       },
-      destructive: {
-        1: "#d4183d",
-        2: "#ffffff",
+      sand: {
+        1: "#f9f5f2",
+        2: "#f1e7de",
+        3: "#e3cfbd",
+        4: "#d5b79d",
+        5: "#c79f7d",
+        6: "#c29c79",
+        7: "#a98265",
+        8: "#d9b08c", // couleur principale
+        9: "#8f6952",
+        10: "#74513f",
       },
-      border: "rgba(124, 152, 133, 0.2)",
+      peach: {
+        1: "#fff7f1",
+        2: "#ffebdd",
+        3: "#ffd7bb",
+        4: "#ffc399",
+        5: "#ffaf77",
+        6: "#ffa266",
+        7: "#e68f58",
+        8: "#ffcb9a", // couleur principale
+        9: "#cc9e75",
+        10: "#997250",
+      },
+      mint: {
+        1: "#f4fbfa",
+        2: "#e6f6f4",
+        3: "#cdeee9",
+        4: "#b4e5de",
+        5: "#9bdcd4",
+        6: "#88c9c0",
+        7: "#75b6ad",
+        8: "#d1e8e2", // couleur principale
+        9: "#7d8b8b",
+        10: "#5e6969",
+      },
     },
     spacing: {
       px: "1px",
@@ -122,6 +163,102 @@ module.exports = {
             transform: "none",
           },
         },
+        "fade-in-up": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(20px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+        "fade-in-scale": {
+          "0%": {
+            opacity: "0",
+            transform: "scale(0.8)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "scale(1)",
+          },
+        },
+        "rotate-slow": {
+          "0%": {
+            transform: "rotate(0deg)",
+          },
+          "100%": {
+            transform: "rotate(360deg)",
+          },
+        },
+        "rotate-reverse": {
+          "0%": {
+            transform: "rotate(360deg)",
+          },
+          "100%": {
+            transform: "rotate(0deg)",
+          },
+        },
+        "float-1": {
+          "0%, 100%": {
+            transform: "translateY(-10px)",
+            opacity: "0.3",
+          },
+          "50%": {
+            transform: "translateY(10px)",
+            opacity: "1",
+          },
+        },
+        "float-2": {
+          "0%, 100%": {
+            transform: "translateY(-8px)",
+            opacity: "0.4",
+          },
+          "50%": {
+            transform: "translateY(12px)",
+            opacity: "1",
+          },
+        },
+        "float-3": {
+          "0%, 100%": {
+            transform: "translateY(-12px)",
+            opacity: "0.3",
+          },
+          "50%": {
+            transform: "translateY(8px)",
+            opacity: "1",
+          },
+        },
+        "float-4": {
+          "0%, 100%": {
+            transform: "translateY(-6px)",
+            opacity: "0.5",
+          },
+          "50%": {
+            transform: "translateY(14px)",
+            opacity: "1",
+          },
+        },
+        "float-5": {
+          "0%, 100%": {
+            transform: "translateY(-14px)",
+            opacity: "0.2",
+          },
+          "50%": {
+            transform: "translateY(6px)",
+            opacity: "1",
+          },
+        },
+        "float-6": {
+          "0%, 100%": {
+            transform: "translateY(-11px)",
+            opacity: "0.4",
+          },
+          "50%": {
+            transform: "translateY(9px)",
+            opacity: "1",
+          },
+        },
       },
       animation: {
         "slide-in-right":
@@ -129,6 +266,32 @@ module.exports = {
         "slide-in-left":
           "slide-in-left 0.32s cubic-bezier(0.17, 0.67, 0.41, 1.17) 0.16s both",
         "bg-slide-loop": "bg-slide-loop 2s ease-in-out infinite",
+        "fade-in-up": "fade-in-up 0.8s ease-out",
+        "fade-in-up-delay": "fade-in-up 0.8s ease-out 0.2s both",
+        "fade-in-up-delay-2": "fade-in-up 0.8s ease-out 0.4s both",
+        "fade-in-up-delay-3": "fade-in-up 0.8s ease-out 0.6s both",
+        "fade-in-up-delay-4": "fade-in-up 0.8s ease-out 0.8s both",
+        "fade-in-scale": "fade-in-scale 1s ease-out 0.3s both",
+        "rotate-slow": "rotate-slow 20s linear infinite",
+        "rotate-reverse": "rotate-reverse 15s linear infinite",
+        "rotate-fast": "spin 10s linear infinite",
+        "float-1": "float-1 3s ease-in-out infinite",
+        "float-2": "float-2 3.5s ease-in-out infinite 0.2s",
+        "float-3": "float-3 4s ease-in-out infinite 0.4s",
+        "float-4": "float-4 3.2s ease-in-out infinite 0.6s",
+        "float-5": "float-5 3.8s ease-in-out infinite 0.8s",
+        "float-6": "float-6 3.6s ease-in-out infinite 1s",
+      },
+      container: {
+        center: true,
+        padding: "1rem",
+        screens: {
+          sm: "640px",
+          md: "768px",
+          lg: "1024px",
+          xl: "1280px",
+          "2xl": "1536px",
+        },
       },
     },
   },

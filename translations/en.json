@@ -1,48 +1,10 @@
 {
-  "navigation": {
-    "home": "Home",
-    "projects": "Projects",
-    "about": "About",
-    "contact": "Contact",
-    "admin": "Admin"
-  },
-  "home": {
-    "title": "Full-Stack Developer",
-    "subtitle": "Creator of modern web experiences",
-    "description": "Passionate about web development, I create modern applications with the latest technologies.",
-    "downloadCV": "Download CV",
-    "viewProjects": "View my projects",
-    "featuredProjects": "Featured Projects"
-  },
-  "projects": {
-    "title": "My Projects",
-    "description": "Discover my achievements and projects",
-    "viewDemo": "View demo",
-    "viewCode": "View code",
-    "technologies": "Technologies used"
-  },
-  "admin": {
-    "title": "Administration",
-    "login": "Login",
-    "email": "Email",
-    "password": "Password",
-    "loginButton": "Sign in",
-    "dashboard": "Dashboard",
-    "addProject": "Add project",
-    "editProject": "Edit project",
-    "deleteProject": "Delete",
-    "projectTitle": "Project title",
-    "projectDescription": "Description",
-    "projectStack": "Technologies (comma separated)",
-    "githubUrl": "GitHub URL",
-    "demoUrl": "Demo URL",
-    "featured": "Featured project",
-    "save": "Save",
-    "cancel": "Cancel"
-  },
-  "common": {
-    "loading": "Loading...",
-    "error": "An error occurred",
-    "success": "Operation successful"
+  "hero": {
+    "greeting": "Hey! 👋 I'm",
+    "name": "Gaëtan Redoutez",
+    "title": "Web Developer",
+    "subtitle": "I design modern and performant web experiences",
+    "cta1": "Discover my portfolio",
+    "cta2": "Get a quote"
   }
 }

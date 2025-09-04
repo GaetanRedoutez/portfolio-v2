@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -12,14 +11,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default function AdminLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" className={inter.variable} suppressHydrationWarning={true}>
+    <html lang="fr" className={inter.variable}>
       <body className="flex min-h-screen flex-col bg-background text-foreground">
+        layout admin
         {children}
       </body>
     </html>
