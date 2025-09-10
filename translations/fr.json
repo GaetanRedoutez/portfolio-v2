@@ -3,10 +3,13 @@
     "greeting": "Salut ! 👋 Je suis",
     "name": "Gaëtan Redoutez",
     "title": "Développeur Web",
-    "subtitle": "Je conçois des expériences web modernes et performantes",
+    "subtitle": "Je conçois des expériences web modernes",
     "cta1": "Découvrir mon portfolio",
     "cta1-label": "Portfolio de Gaëtan Redoutez",
     "cta2": "Me contacter",
     "cta2-label": "Contacter Gaëtan Redoutez"
+  },
+  "about": {
+    "title": "A propos"
   }
 }

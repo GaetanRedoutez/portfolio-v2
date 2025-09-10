@@ -1,5 +1,5 @@
 import React from "react";
-import clsx from "clsx";
+import { twMerge } from "tailwind-merge";
 
 export const SectionWrapper = ({
   children,
@@ -14,12 +14,12 @@ export const SectionWrapper = ({
 }) => {
   return (
     <section
-      className={clsx("bg-neutral-10 min-h-screen text-accent-1", className)}
+      className={twMerge("bg-neutral-10 text-accent-1", className)}
       id={id}
     >
       <div
-        className={clsx(
-          "container mx-auto grid h-screen place-items-center grid-cols-1 md:grid-cols-2 gap-8 px-4",
+        className={twMerge(
+          "container mx-auto  place-items-center gap-8 px-4",
           innerClassName
         )}
       >
