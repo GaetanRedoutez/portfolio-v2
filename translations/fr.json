@@ -11,5 +11,8 @@
   },
   "about": {
     "title": "A propos"
+  },
+  "project": {
+    "title": "Mes projets"
   }
 }
