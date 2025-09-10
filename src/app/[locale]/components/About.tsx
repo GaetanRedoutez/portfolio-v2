@@ -1,10 +1,16 @@
 import { SectionWrapper } from "@/app/components/ui/SectionWrapper";
-import { useTranslations } from "next-intl";
+import dbConnect from "@/lib/db";
+import Parcours, { IParcours, ParcoursInterface } from "@/lib/models/Parcours";
+import { getLocale, getTranslations } from "next-intl/server";
 import Image from "next/image";
+import { Locale } from "../../../../i18n";
 
-export const About = () => {
-  const t = useTranslations("about");
+export const About = async () => {
+  const locale = (await getLocale()) as Locale;
+  const t = await getTranslations("about");
 
+  await dbConnect();
+  const parcours = await Parcours.find().lean<IParcours[]>();
   return (
     <SectionWrapper
       id="about"
@@ -48,16 +54,23 @@ export const About = () => {
         <div className="flex flex-col gap-4">
           {parcours
             .sort((a, b) => b.date.start.localeCompare(a.date.start))
-            .map((data, index) => {
-              return <ParcoursTag key={index} data={data} />;
-            })}
+            .map((data: IParcours, index: number) => (
+              <ParcoursTag
+                key={index}
+                data={{
+                  ...data,
+                  title: data.title[locale],
+                  subtitle: data.subtitle[locale],
+                }}
+              />
+            ))}
         </div>
       </div>
     </SectionWrapper>
   );
 };
 
-const ParcoursTag = ({ data }: { data: any }) => {
+const ParcoursTag = ({ data }: { data: ParcoursInterface }) => {
   return (
     <div className="flex gap-2">
       <div className="flex flex-col items-center">
@@ -74,26 +87,3 @@ const ParcoursTag = ({ data }: { data: any }) => {
     </div>
   );
 };
-
-const parcours = [
-  {
-    date: { start: "2018", end: "2023" },
-    title: "Automaticien",
-    subtitle: "Programmation et automatisation",
-  },
-  {
-    date: { start: "2020", end: "2023" },
-    title: "Début en développement",
-    subtitle: "Formation autodidacte et premiers projets personnels",
-  },
-  {
-    date: { start: "2023", end: "2024" },
-    title: "Formation développeur web",
-    subtitle: "Formation OpenClassrooms",
-  },
-  {
-    date: { start: "2024" },
-    title: "Alternance développeur web",
-    subtitle: "Créations d'applications web React, Next.js et Java",
-  },
-];

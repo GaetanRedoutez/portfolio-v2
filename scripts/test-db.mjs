@@ -1,8 +1,8 @@
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-const MONGODB_URI =
-  "mongodb+srv://portfolio-admin:pvD78BNYBC29YOw2@portfolio-cluster.4c6c0w2.mongodb.net/?retryWrites=true&w=majority&appName=portfolio-cluster";
+dotenv.config({ path: ".env.local" });
+const MONGODB_URI = process.env.MONGODB_URI;
 
 async function testConnection() {
   try {
