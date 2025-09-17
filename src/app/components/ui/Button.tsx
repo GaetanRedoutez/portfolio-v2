@@ -32,10 +32,10 @@ const buttonVariants = cva(
           "border-2 border-accent-6 bg-accent-1 text-accent-8 hover:bg-accent-2 hover:scale-[1.03] hover:shadow-md focus-visible:ring-accent-4",
       },
       size: {
-        default: "h-9 px-4 text-md",
-        sm: "h-8 px-3 text-sm",
-        lg: "h-11 px-6 text-l",
-        xl: "h-14 px-8 text-xl",
+        default: "h-9 px-4 text-sm",
+        sm: "h-8 px-3 text-xs",
+        lg: "h-11 px-6 text-md",
+        xl: "h-14 px-8 text-l",
         icon: "size-9 p-0 flex items-center justify-center",
       },
       rounded: {
@@ -78,7 +78,8 @@ function Button({
     <Comp
       data-slot="button"
       className={clsx(
-        buttonVariants({ variant, size, rounded, weight, className })
+        buttonVariants({ variant, size, rounded, weight }),
+        className
       )}
       {...props}
     />

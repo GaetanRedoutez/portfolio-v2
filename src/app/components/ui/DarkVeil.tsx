@@ -134,25 +134,31 @@ export default function DarkVeil({
 
     const start = performance.now();
     let frame = 0;
+    let running = false;
 
-    const loop = () => {
-      program.uniforms.uTime.value =
-        ((performance.now() - start) / 1000) * speed;
+    const loop = (now: number) => {
+      if (!running) return;
+      program.uniforms.uTime.value = ((now - start) / 1000) * speed;
       program.uniforms.uHueShift.value = hueShift;
       program.uniforms.uNoise.value = noiseIntensity;
       program.uniforms.uScan.value = scanlineIntensity;
       program.uniforms.uScanFreq.value = scanlineFrequency;
       program.uniforms.uWarp.value = warpAmount;
+
       renderer.render({ scene: mesh });
       frame = requestAnimationFrame(loop);
     };
 
-    loop();
-
-    return () => {
-      cancelAnimationFrame(frame);
-      window.removeEventListener("resize", resize);
-    };
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !running) {
+        running = true;
+        loop(performance.now());
+      } else if (!entry.isIntersecting && running) {
+        running = false;
+        cancelAnimationFrame(frame);
+      }
+    });
+    observer.observe(canvas);
   }, [
     hueShift,
     noiseIntensity,

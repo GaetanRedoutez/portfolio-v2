@@ -10,9 +10,13 @@
     "cta2-label": "Contacter Gaëtan Redoutez"
   },
   "about": {
-    "title": "A propos"
+    "title": "À propos"
   },
-  "project": {
-    "title": "Mes projets"
+  "projects": {
+    "title": "Mes projets",
+    "subtitle": "Découvrez mes dernières réalisations"
+  },
+  "contact": {
+    "title": "Me contacter"
   }
 }

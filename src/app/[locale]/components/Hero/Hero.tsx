@@ -10,16 +10,17 @@ export const Hero = () => {
     <>
       <SectionWrapper
         id="home"
-        innerClassName="h-screen flex items-center justify-center"
+        className="bg-common-2"
+        innerClassName="h-screen flex items-center justify-center "
       >
         <div className="absolute inset-0 z-0">
-          {/* <DarkVeil hueShift={50} speed={2} /> */}
+          {/* <DarkVeil hueShift={50} speed={1.2} /> */}
         </div>
         <div className="space-y-3 animate-slide-in-left text-center">
           <h1 className="text-4xl md:text-[6rem] font-bold bg-gradient-to-r from-mint-4 to-accent-4 bg-clip-text text-transparent animate-fade-in-up-delay-2">
             {t("name")}
           </h1>
-          <div className="text-2xl md:text-5xl text-accent-3 animate-fade-in-up-delay-3">
+          <div className="text-2xl md:text-6xl text-accent-3 animate-fade-in-up-delay-3">
             {t("title")}
           </div>
           <div className="text-md md:text-lg text-neutral-3 animate-fade-in-up-delay-3">

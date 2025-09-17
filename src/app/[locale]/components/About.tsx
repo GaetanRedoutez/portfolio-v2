@@ -18,7 +18,7 @@ export const About = async () => {
       innerClassName="flex flex-col w-full py-2 lg:py-8"
     >
       <h2
-        className="relative animate-fade-in-up-delay-3 text-center inline-block pb-2 text-xl md:text-2xl font-bold
+        className="relative animate-fade-in-up-delay-3 text-center inline-block pb-2 text-xl md:text-4xl font-medium
         after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[3px] 
         after:bg-gradient-to-r after:from-mint-10 after:to-mint-7"
       >

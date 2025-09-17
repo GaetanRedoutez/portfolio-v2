@@ -1,16 +1,31 @@
 import mongoose from "mongoose";
 
-export interface IProject extends mongoose.Document {
+export interface ProjectInterface {
   title: string;
-  slug: string;
+  slug?: string;
   description: string;
-  stack: string[];
+  stack: string;
+  tech: string[];
   github?: string;
   demo?: string;
   images: string[];
-  featured: boolean;
-  createdAt: Date;
-  updatedAt: Date;
+  featured?: boolean;
+  createdAt?: Date;
+  updatedAt?: Date;
+}
+
+export interface IProject extends mongoose.Document {
+  title: string;
+  slug?: string;
+  description: string;
+  stack: string;
+  tech: string[];
+  github?: string;
+  demo?: string;
+  images: string[];
+  featured?: boolean;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 const ProjectSchema = new mongoose.Schema<IProject>(
@@ -38,7 +53,11 @@ const ProjectSchema = new mongoose.Schema<IProject>(
       trim: true,
       maxlength: [1000, "La description ne peut pas dépasser 1000 caractères"],
     },
-    stack: [
+    stack: {
+      type: String,
+      trim: true,
+    },
+    tech: [
       {
         type: String,
         trim: true,
@@ -93,7 +112,6 @@ ProjectSchema.pre<IProject>("save", function (next) {
 // Index pour la recherche
 ProjectSchema.index({ title: "text", description: "text" });
 ProjectSchema.index({ featured: 1, createdAt: -1 });
-ProjectSchema.index({ slug: 1 });
 
 export default mongoose.models.Project ||
   mongoose.model<IProject>("Project", ProjectSchema);
