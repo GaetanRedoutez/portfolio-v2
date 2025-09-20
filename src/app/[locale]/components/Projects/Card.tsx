@@ -25,8 +25,8 @@ export const Card = (project: ProjectInterface) => {
           </div>
 
           {/* Hover actions */}
-          <div className="absolute inset-0 flex items-center justify-center space-x-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <button className="bg-neutral-2 p-2 rounded-full text-peach-7 hover:bg-peach-7 hover:text-common-1 transition-colors">
+          <div className="absolute inset-0 flex items-center justify-center space-x-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 group-hover:animate-fade-in-up-delay-2">
+            <button className="bg-neutral-2 p-2 rounded-full text-peach-7 hover:bg-peach-7 hover:text-common-1 transition-colors ">
               <Link width={16} height={16} />
             </button>
             <button className="bg-neutral-2 p-2 rounded-full text-peach-7 hover:bg-peach-7 hover:text-common-1 transition-colors">

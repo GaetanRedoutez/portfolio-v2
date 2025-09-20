@@ -16,6 +16,13 @@
     "title": "Mes projets",
     "subtitle": "Découvrez mes dernières réalisations"
   },
+  "skills": {
+    "title": "Compétences Techniques",
+    "subtitle": "Technologies et outils que je maîtrise pour créer des expériences digitales performantes.",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "other": "Autre"
+  },
   "contact": {
     "title": "Me contacter"
   }
