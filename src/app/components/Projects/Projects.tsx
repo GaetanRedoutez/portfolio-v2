@@ -1,12 +1,11 @@
 import { SectionWrapper } from "@/app/components/ui/SectionWrapper";
 import dbConnect from "@/lib/db";
 import Project, { IProject } from "@/lib/models/Project";
-import { getLocale, getTranslations } from "next-intl/server";
-import { Locale } from "../../../../../i18n";
+import { getTranslations } from "next-intl/server";
+import { Locale } from "../../../../i18n";
 import { Card } from "./Card";
 
-export const Projects = async () => {
-  const locale = (await getLocale()) as Locale;
+export const Projects = async ({ locale }: { locale: Locale }) => {
   const t = await getTranslations("projects");
 
   await dbConnect();
@@ -14,7 +13,7 @@ export const Projects = async () => {
   return (
     <SectionWrapper
       id="projects"
-      className="bg-gradient-to-b from-accent-10/95 via-accent-10 to-common-2"
+      className="bg-gradient-to-b from-common-2/90 to-common-2"
       innerClassName="flex flex-col w-full py-2 lg:py-8"
     >
       <h2

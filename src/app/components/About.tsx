@@ -1,12 +1,11 @@
 import { SectionWrapper } from "@/app/components/ui/SectionWrapper";
 import dbConnect from "@/lib/db";
 import Parcours, { IParcours, ParcoursInterface } from "@/lib/models/Parcours";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
-import { Locale } from "../../../../i18n";
+import { Locale } from "../../../i18n";
 
-export const About = async () => {
-  const locale = (await getLocale()) as Locale;
+export const About = async ({ locale }: { locale: Locale }) => {
   const t = await getTranslations("about");
 
   await dbConnect();
@@ -14,7 +13,7 @@ export const About = async () => {
   return (
     <SectionWrapper
       id="about"
-      className="bg-gradient-to-b from-common-2 to-accent-10/95"
+      className="bg-gradient-to-b from-common-2 to-common-2/90"
       innerClassName="flex flex-col w-full py-2 lg:py-8"
     >
       <h2

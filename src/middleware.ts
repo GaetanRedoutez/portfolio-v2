@@ -11,6 +11,10 @@ const intlMiddleware = createMiddleware({
 });
 
 export default async function middleware(request: NextRequest) {
+  if (request.nextUrl.pathname.startsWith("/api")) {
+    return NextResponse.next();
+  }
+
   const response = await intlMiddleware(request);
 
   if (request.nextUrl.pathname.startsWith("/admin")) {
@@ -28,5 +32,6 @@ export default async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next|_vercel|.*\\..*).*)"],
+  // Matcher qui exclut les routes API et les fichiers statiques
+  matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],
 };

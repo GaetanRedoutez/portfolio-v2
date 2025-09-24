@@ -24,6 +24,25 @@
     "other": "Autre"
   },
   "contact": {
-    "title": "Me contacter"
+    "title": "Me contacter",
+    "subtitle": "Pour plus de renseignements, n'hésitez pas à m'envoyer un message !",
+    "info": "Informations de contact",
+    "email": "Email",
+    "phone": "Téléphone",
+    "loc": "Localisation",
+    "loc-pos": "Bourgogne-Franche-Comté, France",
+    "social": "Liens externes",
+    "form": {
+      "lastName": "Nom",
+      "firstName": "Nom",
+      "email": "Email",
+      "phone": "Téléphone",
+      "message": "Message",
+      "submit": "Envoyer",
+      "submitting": "Envoi...",
+      "success": "Merci pour votre message ! Je vous recontacterai rapidement.",
+      "error": "Une erreur s'est produite lors de l'envoi du message.",
+      "srOnly": "Formulaire de contact pour Gaëtan Redoutez, développeur web."
+    }
   }
 }
