@@ -5,9 +5,8 @@ import iconMap from "@/lib/utils/iconMap";
 import { QuestionMark } from "iconoir-react";
 import { getTranslations } from "next-intl/server";
 import React from "react";
-import { Locale } from "../../../i18n";
 
-export const Skills = async ({ locale }: { locale: Locale }) => {
+export const Skills = async () => {
   const t = await getTranslations("skills");
 
   await dbConnect();

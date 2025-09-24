@@ -25,9 +25,9 @@ export default async function HomePage() {
         >
           <Hero {...{ locale }} />
           <About {...{ locale }} />
-          <Projects {...{ locale }} />
-          <Skills {...{ locale }} />
-          <Contact {...{ locale }} />
+          <Projects />
+          <Skills />
+          <Contact />
         </IconoirProvider>
       </NextIntlClientProvider>
     </main>

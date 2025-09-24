@@ -1,10 +1,9 @@
 import { SectionWrapper } from "@/app/components/ui/SectionWrapper";
 import { Github, Internet, Linkedin, Mail, MapPin, Phone } from "iconoir-react";
 import { getTranslations } from "next-intl/server";
-import { Locale } from "../../../i18n";
 import ContactForm from "./ContactForm";
 
-export const Contact = async ({ locale }: { locale: Locale }) => {
+export const Contact = async () => {
   const t = await getTranslations("contact");
 
   return (

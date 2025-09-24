@@ -2,10 +2,9 @@ import { SectionWrapper } from "@/app/components/ui/SectionWrapper";
 import dbConnect from "@/lib/db";
 import Project, { IProject } from "@/lib/models/Project";
 import { getTranslations } from "next-intl/server";
-import { Locale } from "../../../../i18n";
 import { Card } from "./Card";
 
-export const Projects = async ({ locale }: { locale: Locale }) => {
+export const Projects = async () => {
   const t = await getTranslations("projects");
 
   await dbConnect();
