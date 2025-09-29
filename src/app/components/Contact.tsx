@@ -32,6 +32,7 @@ export const Contact = async () => {
                 <div>
                   <div>{t("email")}</div>
                   <a
+                    target="_blank"
                     href={`mailto:${process.env.EMAIL_TO}`}
                     className="hover:text-mint-6 hover:underline"
                   >
@@ -46,6 +47,7 @@ export const Contact = async () => {
                 <div>
                   <div>{t("phone")}</div>
                   <a
+                    target="_blank"
                     href={`mailto:${process.env.PHONE_TO}`}
                     className="hover:text-mint-6 hover:underline"
                   >
@@ -93,6 +95,7 @@ type SocialWrapperProps = {
 const SocialWrapper = ({ href, children }: SocialWrapperProps) => {
   return (
     <a
+      target="_blank"
       href={href}
       className="h-6 w-6 bg-neutral-1 text-neutral-10 rounded-md flex items-center justify-center hover:scale-110 transition-transform duration-300 hover:text-mint-6 hover:bg-neutral-2"
     >

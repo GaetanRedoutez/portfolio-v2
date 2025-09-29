@@ -1,45 +1,93 @@
+import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import type { NextAuthOptions } from "next-auth";
-import { compare } from "bcryptjs";
+import bcrypt from "bcryptjs";
+import mongoose from "mongoose";
+import User from "./models/User";
+
+async function connectDB() {
+  if (mongoose.connections[0].readyState) {
+    return;
+  }
+
+  if (!process.env.MONGODB_URI) {
+    throw new Error("Please define the MONGODB_URI");
+  }
+
+  try {
+    await mongoose.connect(process.env.MONGODB_URI);
+  } catch (error) {
+    console.error("Erreur de connexion MongoDB:", error);
+  }
+}
 
 export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
-      name: "Credentials",
+      name: "credentials",
       credentials: {
-        email: { label: "Email", type: "text" },
+        email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        if (
-          credentials?.email === process.env.ADMIN_EMAIL &&
-          credentials?.password
-        ) {
-          // Vérif mot de passe avec bcrypt
-          const isValid = await compare(
+        if (!credentials?.email || !credentials?.password) {
+          return null;
+        }
+
+        try {
+          await connectDB();
+
+          const user = await User.findOne({
+            email: credentials.email,
+          }).select("+password");
+
+          if (!user) {
+            console.log("Utilisateur non trouvé");
+            return null;
+          }
+
+          const isPasswordValid = await bcrypt.compare(
             credentials.password,
-            await hashAdminPassword()
+            user.password
           );
 
-          if (isValid) {
-            return { id: "1", name: "Admin", email: credentials.email };
+          if (!isPasswordValid) {
+            console.log("Mot de passe incorrect");
+            return null;
           }
+
+          console.log("Connexion réussie pour:", user.email);
+
+          return {
+            id: user._id.toString(),
+            email: user.email,
+            name: user.name,
+          };
+        } catch (error) {
+          console.error("Erreur lors de l'authentification:", error);
+          return null;
         }
-        return null;
       },
     }),
   ],
-  pages: {
-    signIn: "/admin/login", // page custom
-  },
   session: {
     strategy: "jwt",
   },
+  pages: {
+    signIn: "/login",
+  },
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      if (token && session.user) {
+        session.user.id = token.id;
+      }
+      return session;
+    },
+  },
   secret: process.env.NEXTAUTH_SECRET,
 };
-
-// On hash une seule fois le mot de passe admin de l'env
-import bcrypt from "bcryptjs";
-async function hashAdminPassword() {
-  return await bcrypt.hash(process.env.ADMIN_PASSWORD!, 10);
-}

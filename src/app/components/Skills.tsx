@@ -1,6 +1,6 @@
 import { SectionWrapper } from "@/app/components/ui/SectionWrapper";
 import dbConnect from "@/lib/db";
-import Skill, { ISkill, SkillInterface } from "@/lib/models/Skills";
+import Skill, { ISkill } from "@/lib/models/Skill";
 import iconMap from "@/lib/utils/iconMap";
 import { QuestionMark } from "iconoir-react";
 import { getTranslations } from "next-intl/server";
@@ -51,7 +51,7 @@ export const Skills = async () => {
   );
 };
 
-function SkillCard({ skill }: { skill: SkillInterface }) {
+function SkillCard({ skill }: { skill: ISkill }) {
   const Icon = iconMap[skill.icon] || QuestionMark; // fallback
   return (
     <div className="relative  px-6 py-2 rounded-md text-neutral-10 cursor-default overflow-hidden group animate-fade-in-up-delay-3 ">

@@ -7,6 +7,7 @@ import { Skills } from "../components/Skills";
 import { IconoirProvider } from "iconoir-react";
 import { Locale } from "../../../i18n";
 import { NextIntlClientProvider } from "next-intl";
+import { Footer } from "../components/Footer";
 
 export default async function HomePage() {
   const locale = (await getLocale()) as Locale;
@@ -28,6 +29,7 @@ export default async function HomePage() {
           <Projects />
           <Skills />
           <Contact />
+          <Footer />
         </IconoirProvider>
       </NextIntlClientProvider>
     </main>
