@@ -77,12 +77,16 @@ const ParcoursTag = ({ data, locale }: { data: IParcours; locale: Locale }) => {
       </div>
       <div>
         <div className="font-bold text-sand-5 text-sm">
-          {data.date.start} {data.date.end && `- ${data.date.end}`}
+          {data.date.start.split("-")[0]}{" "}
+          {data.date.end && `- ${data.date.end.split("-")[0]}`}
         </div>
         <div className="font-semibold text-neutral-2 ">
-          {data.title[locale]}
+          {data.title[locale]}{" "}
+          {data.company && (
+            <span className="text-neutral-3">- {data.company}</span>
+          )}
         </div>
-        <div className="text-neutral-3">{data.title[locale]}</div>
+        <div className="text-neutral-3">{data.subtitle[locale]}</div>
       </div>
     </div>
   );

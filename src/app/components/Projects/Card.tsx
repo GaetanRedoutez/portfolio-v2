@@ -7,7 +7,7 @@ export const Card = (project: IProject) => {
   console.log(project);
   return (
     <div className="group">
-      <div className="bg-common-1 max-w-[340px] max-h-[402px] rounded-lg overflow-hidden border border-gray-200 hover:border-peach-7 transition-all duration-300 hover:shadow-lg hover:shadow-peach-7/10">
+      <div className="bg-common-1 max-w-[340px] h-[402px] rounded-lg overflow-hidden border border-gray-200 hover:border-peach-7 transition-all duration-300 hover:shadow-lg hover:shadow-peach-7/10">
         {/* Project Image */}
         <div className="relative overflow-hidden">
           <Image
