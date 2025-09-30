@@ -1,8 +1,8 @@
-import { ProjectInterface } from "@/lib/models/Project";
+import { IProject } from "@/lib/models/Project";
 import { Github, Link } from "iconoir-react";
 import Image from "next/image";
 
-export const Card = (project: ProjectInterface) => {
+export const Card = (project: IProject) => {
   return (
     <div className="group">
       <div className="bg-common-1 max-w-[340px] max-h-[402px] rounded-lg overflow-hidden border border-gray-200 hover:border-peach-7 transition-all duration-300 hover:shadow-lg hover:shadow-peach-7/10">

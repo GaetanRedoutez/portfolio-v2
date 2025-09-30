@@ -1,6 +1,6 @@
 import { SectionWrapper } from "@/app/components/ui/SectionWrapper";
 import dbConnect from "@/lib/db";
-import Parcours, { IParcours, ParcoursInterface } from "@/lib/models/Parcours";
+import Parcours, { IParcours } from "@/lib/models/Parcours";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { Locale } from "../../../i18n";
@@ -58,9 +58,8 @@ export const About = async ({ locale }: { locale: Locale }) => {
                 key={index}
                 data={{
                   ...data,
-                  title: data.title[locale],
-                  subtitle: data.subtitle[locale],
                 }}
+                locale={locale}
               />
             ))}
         </div>
@@ -69,7 +68,7 @@ export const About = async ({ locale }: { locale: Locale }) => {
   );
 };
 
-const ParcoursTag = ({ data }: { data: ParcoursInterface }) => {
+const ParcoursTag = ({ data, locale }: { data: IParcours; locale: Locale }) => {
   return (
     <div className="flex gap-2">
       <div className="flex flex-col items-center">
@@ -80,8 +79,10 @@ const ParcoursTag = ({ data }: { data: ParcoursInterface }) => {
         <div className="font-bold text-sand-5 text-sm">
           {data.date.start} {data.date.end && `- ${data.date.end}`}
         </div>
-        <div className="font-semibold text-neutral-2 ">{data.title}</div>
-        <div className="text-neutral-3">{data.subtitle}</div>
+        <div className="font-semibold text-neutral-2 ">
+          {data.title[locale]}
+        </div>
+        <div className="text-neutral-3">{data.title[locale]}</div>
       </div>
     </div>
   );
