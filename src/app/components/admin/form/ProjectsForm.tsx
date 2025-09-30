@@ -301,9 +301,12 @@ export default function ProjectForm({
             value={imageInput}
             placeholder="https://example.com/image.jpg"
             onChange={(e) => setImageInput(e.target.value)}
-            onKeyPress={(e) =>
-              e.key === "Enter" && (e.preventDefault(), handleAddImage())
-            }
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                e.preventDefault();
+                handleAddImage();
+              }
+            }}
             className="border border-neutral-3 p-2 flex-1 rounded focus:ring-2 focus:ring-accent-6 focus:border-transparent"
           />
           <button

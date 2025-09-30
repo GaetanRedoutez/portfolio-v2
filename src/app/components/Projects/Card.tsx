@@ -1,8 +1,10 @@
 import { IProject } from "@/lib/models/Project";
-import { Github, Link } from "iconoir-react";
+import { Github, Link as LinkIcon } from "iconoir-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export const Card = (project: IProject) => {
+  console.log(project);
   return (
     <div className="group">
       <div className="bg-common-1 max-w-[340px] max-h-[402px] rounded-lg overflow-hidden border border-gray-200 hover:border-peach-7 transition-all duration-300 hover:shadow-lg hover:shadow-peach-7/10">
@@ -26,12 +28,24 @@ export const Card = (project: IProject) => {
 
           {/* Hover actions */}
           <div className="absolute inset-0 flex items-center justify-center space-x-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 group-hover:animate-fade-in-up-delay-2">
-            <button className="bg-neutral-2 p-2 rounded-full text-peach-7 hover:bg-peach-7 hover:text-common-1 transition-colors ">
-              <Link width={16} height={16} />
-            </button>
-            <button className="bg-neutral-2 p-2 rounded-full text-peach-7 hover:bg-peach-7 hover:text-common-1 transition-colors">
-              <Github width={16} height={16} />
-            </button>
+            {project.demo && (
+              <Link
+                className="bg-neutral-2 p-2 rounded-full text-peach-7 hover:bg-peach-7 hover:text-common-1 transition-colors "
+                href={project.demo}
+                target="_blank"
+              >
+                <LinkIcon width={16} height={16} />
+              </Link>
+            )}
+            {project.github && (
+              <Link
+                className="bg-neutral-2 p-2 rounded-full text-peach-7 hover:bg-peach-7 hover:text-common-1 transition-colors"
+                href={project.github}
+                target="_blank"
+              >
+                <Github width={16} height={16} />
+              </Link>
+            )}
           </div>
         </div>
 
