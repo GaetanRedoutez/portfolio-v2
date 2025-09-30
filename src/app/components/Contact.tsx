@@ -10,7 +10,7 @@ export const Contact = async () => {
     <SectionWrapper
       id="contact"
       innerClassName="flex flex-col w-full py-2 lg:py-8"
-      className="bg-gradient-to-br from-common-2/90 via-neutral-2 to-neutral-1 text-neutral-10"
+      className="bg-gradient-to-b from-common-2/90  via-neutral-10 to-common-2 text-neutral-1"
     >
       <h2
         className="relative animate-fade-in-up-delay-3 text-center inline-block pb-2 text-xl md:text-4xl font-medium

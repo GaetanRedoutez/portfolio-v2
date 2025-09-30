@@ -89,7 +89,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="mx-auto lg:px-6 px-4 py-2 bg-common-1 rounded-lg border border-border">
+    <div className="mx-auto lg:px-6 px-4 py-2 bg-neutral-2 text-common-2 rounded-lg border border-border">
       <Toaster />
       <form onSubmit={handleSubmit} className="space-y-3">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
